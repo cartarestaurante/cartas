@@ -29,7 +29,7 @@
                         </div>
                     </div>
                 </div>
-                <div v-if="!Array.isArray(dish.price)" class="dish-price">
+                <div v-else class="dish-price">
                     {{ dish.price }}{{ currency }}
                 </div>
             </div>
