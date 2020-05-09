@@ -1,0 +1,5 @@
+@mixin root-custom {
+  --font-family: var(--font-family-primary);
+  --font-size: var(--font-size-m);
+  --space-tags-cms: var(--space-m);
+}
