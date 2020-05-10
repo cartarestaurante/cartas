@@ -4,12 +4,17 @@
             <header class="header">
                 <img class="logo" :src="restaurantInfo.logo" :alt="restaurantInfo.name">
             </header>
-            <div>
-                {{ currentCategory }}
-                <button v-if="currentCategory < 0" @click.prevent="navigateToPreviousCategory()">
+            <div class="nav-buttons">
+                <button
+                    v-if="currentCategory > 0"
+                    class="nav-buttons-prev"
+                    @click="navigateToPreviousCategory()">
                     {{ restaurantInfo.categories[currentCategory - 1].name }}
                 </button>
-                <button v-if="currentCategory > restaurantInfo.categories.length || currentCategory === 0" @click.prevent="navigateToNextCategory()">
+                <button
+                    v-if="currentCategory < restaurantInfo.categories.length - 1 || currentCategory === 0"
+                    class="nav-buttons-next"
+                    @click="navigateToNextCategory()">
                     {{ restaurantInfo.categories[currentCategory + 1].name }}
                 </button>
             </div>
@@ -76,10 +81,12 @@
         },
         methods: {
             navigateToPreviousCategory () {
-                this.currentCategory--
+                this.currentCategory = this.currentCategory - 1
+                location.hash = `#${this.restaurantInfo.categories[this.currentCategory].name.trim().toLowerCase()}`
             },
             navigateToNextCategory () {
-                this.currentCategory++
+                this.currentCategory = this.currentCategory + 1
+                location.hash = `#${this.restaurantInfo.categories[this.currentCategory].name.trim().toLowerCase()}`
             }
         }
     }
@@ -99,6 +106,10 @@
 
   .category {
     padding: 16px;
+
+    &:last-of-type {
+      padding-bottom: 66px;
+    }
   }
 
   .category-title {
@@ -196,6 +207,7 @@
     grid-area: price;
   }
 
+
   .dish-allergens {
     display: flex;
     flex-wrap: wrap;
@@ -206,6 +218,32 @@
   .dish-allergen {
     max-width: 24px;
     margin-right: 4px;
+
+  .nav-buttons {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    background-color: #fff;
+    border-top: 2px solid #eee;
+    height: 50px;
+    bottom: 0;
+    user-select: none;
+  }
+
+  .nav-buttons-prev {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    padding-left: 16px;
+  }
+
+  .nav-buttons-next {
+    display: inline-block;
+    height: 100%;
+    width: 50%;
+    text-align: right;
+    padding-right: 16px;
+    float: right;
   }
 
 </style>
