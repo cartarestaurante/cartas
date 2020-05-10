@@ -36,7 +36,23 @@ export const state = () => ({
                             value: 34.45
                         }
                     ],
-                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg',
+                    allergens: {
+                        celery: false,
+                        crustaceans: true,
+                        dioxide: false,
+                        egg: true,
+                        fish: false,
+                        gluten: true,
+                        lupins: true,
+                        milk: true,
+                        mollusks: false,
+                        mustard: true,
+                        peanuts: false,
+                        peelfruits: false,
+                        sesame: true,
+                        soy: true
+                    }
                 },
                 {
                     name: 'Ensalada Cesar',
@@ -55,7 +71,23 @@ export const state = () => ({
                         }
                     ],
                     price: 12.52,
-                    image: 'https://s3.amazonaws.com/menuperu.pe/media/receta/Ensalada%20mixta-1638.jpeg'
+                    image: 'https://s3.amazonaws.com/menuperu.pe/media/receta/Ensalada%20mixta-1638.jpeg',
+                    allergens: {
+                        celery: false,
+                        crustaceans: true,
+                        dioxide: false,
+                        egg: true,
+                        fish: false,
+                        gluten: true,
+                        lupins: true,
+                        milk: true,
+                        mollusks: false,
+                        mustard: true,
+                        peanuts: false,
+                        peelfruits: false,
+                        sesame: true,
+                        soy: true
+                    }
                 }
             ]
         },
@@ -79,7 +111,23 @@ export const state = () => ({
                         }
                     ],
                     price: 24.52,
-                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg',
+                    allergens: {
+                        celery: false,
+                        crustaceans: true,
+                        dioxide: false,
+                        egg: true,
+                        fish: false,
+                        gluten: true,
+                        lupins: true,
+                        milk: true,
+                        mollusks: false,
+                        mustard: true,
+                        peanuts: false,
+                        peelfruits: false,
+                        sesame: true,
+                        soy: true
+                    }
                 },
                 {
                     name: 'Ternera al horno',
@@ -98,7 +146,23 @@ export const state = () => ({
                         }
                     ],
                     price: 12.52,
-                    image: 'https://s3.amazonaws.com/menuperu.pe/media/receta/Ensalada%20mixta-1638.jpeg'
+                    image: 'https://s3.amazonaws.com/menuperu.pe/media/receta/Ensalada%20mixta-1638.jpeg',
+                    allergens: {
+                        celery: false,
+                        crustaceans: true,
+                        dioxide: false,
+                        egg: true,
+                        fish: false,
+                        gluten: true,
+                        lupins: true,
+                        milk: true,
+                        mollusks: false,
+                        mustard: true,
+                        peanuts: false,
+                        peelfruits: false,
+                        sesame: true,
+                        soy: true
+                    }
                 }
             ]
         }
