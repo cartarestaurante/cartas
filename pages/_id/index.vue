@@ -5,19 +5,19 @@
                 <img class="logo" :src="restaurantInfo.logo" :alt="restaurantInfo.name">
             </header>
             <div>
-                {{currentCategory}}
-                <span v-if="currentCategory < 0" @click.prevent="navigateToPreviousCategory">
+                {{ currentCategory }}
+                <button v-if="currentCategory < 0" @click.prevent="navigateToPreviousCategory()">
                     {{ restaurantInfo.categories[currentCategory - 1].name }}
-                </span>
-                <span v-if="currentCategory > restaurantInfo.categories.length || currentCategory === 0" @click.prevent="navigateToNextCategory">
+                </button>
+                <button v-if="currentCategory > restaurantInfo.categories.length || currentCategory === 0" @click.prevent="navigateToNextCategory()">
                     {{ restaurantInfo.categories[currentCategory + 1].name }}
-                </span>
+                </button>
             </div>
-            <div v-for="category in restaurantInfo.categories" :key="category.name" class="category">
+            <div v-for="(category, catIndex) in restaurantInfo.categories" :key="category.name + catIndex" class="category">
                 <div :id="category.name.trim().toLowerCase()" class="category-title">
                     {{ category.name }}
                 </div>
-                <div v-for="dish in category.dishes" :key="dish.name" class="dish" :class="{'dish--img': dish.image}">
+                <div v-for="(dish, dishIndex) in category.dishes" :key="dish.name + dishIndex" class="dish" :class="{'dish--img': dish.image}">
                     <div v-if="dish.image" class="dish-image">
                         <img :src="dish.image" :alt="dish.name">
                     </div>
@@ -64,10 +64,10 @@
             }
         },
         methods: {
-            navigateToPreviousCategory: () => {
+            navigateToPreviousCategory () {
                 this.currentCategory--
             },
-            navigateToNextCategory: () => {
+            navigateToNextCategory () {
                 this.currentCategory++
             }
         }
