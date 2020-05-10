@@ -33,6 +33,17 @@
                     <div v-else class="dish-price">
                         {{ dish.price }}{{ restaurantInfo.currency }}
                     </div>
+                    <div class="dish-allergens">
+                        <template v-for="(value, allergen) in dish.allergens">
+                            <img
+                                v-if="value"
+                                :key="allergen"
+                                class="dish-allergen"
+                                :src="require(`~/static/${allergen}.png`)"
+                                :alt="allergen"
+                            >
+                        </template>
+                    </div>
                 </div>
             </div>
         </div>
@@ -78,13 +89,13 @@
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: auto 1fr;
-    grid-template-areas: "title price" "ingredients ingredients" "sizes sizes";
+    grid-template-areas: "title price" "ingredients ingredients" "sizes sizes" "allergens allergens";
     align-items: start;
     grid-gap: 12px 16px;
 
     &--img {
       grid-template-columns: 56px 1fr auto;
-      grid-template-areas: "image title price" "image ingredients ingredients" "image sizes sizes";
+      grid-template-areas: "image title price" "image ingredients ingredients" "image sizes sizes" "allergens allergens allergens";
     }
 
     & + & {
@@ -161,6 +172,18 @@
     font-size: 14px;
     font-weight: 700;
     grid-area: price;
+  }
+
+  .dish-allergens {
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: allergens;
+    padding-top: 8px;
+  }
+
+  .dish-allergen {
+    max-width: 24px;
+    margin-right: 4px;
   }
 
 </style>
