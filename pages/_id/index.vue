@@ -92,7 +92,13 @@
                     for (const cat in transform) {
                         categories.push({
                             name: cat,
-                            dishes: transform[cat]
+                            dishes: transform[cat].map((a) => {
+                                const price = a.price.filter(p => p.amount)
+                                return {
+                                    ...a,
+                                    price: price.length === 1 ? a.price[0].amount : price
+                                }
+                            })
                         })
                     }
                     return categories
