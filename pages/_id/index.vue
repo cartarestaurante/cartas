@@ -8,17 +8,19 @@
                 <button
                     v-if="currentCategory > 0"
                     class="nav-buttons-prev"
-                    @click="navigateToPreviousCategory()">
+                    @click="navigateToPreviousCategory()"
+                >
                     {{ restaurantInfo.categories[currentCategory - 1].name }}
                 </button>
                 <button
                     v-if="currentCategory < restaurantInfo.categories.length - 1 || currentCategory === 0"
                     class="nav-buttons-next"
-                    @click="navigateToNextCategory()">
+                    @click="navigateToNextCategory()"
+                >
                     {{ restaurantInfo.categories[currentCategory + 1].name }}
                 </button>
             </div>
-            <div v-for="(category, catIndex) in restaurantInfo.categories" :key="category.name + catIndex" class="category">
+            <div v-for="(category, index) in restaurantInfo.categories" :key="category.name + index" class="category">
                 <div :id="category.name.trim().toLowerCase()" class="category-title">
                     {{ category.name }}
                 </div>
@@ -31,7 +33,7 @@
                     </div>
                     <div class="dish-ingredients">
                         <template v-for="ingredient in dish.ingredients">
-                            <span :key="ingredient.name" class="dish-ingredient">{{ ingredient.name }}</span>
+                            <span :key="ingredient" class="dish-ingredient">{{ ingredient }}</span>
                         </template>
                     </div>
                     <div v-if="Array.isArray(dish.price)" class="dish-sizes">
@@ -40,12 +42,23 @@
                                 {{ size.label }}
                             </div>
                             <div class="dish-size-price">
-                                {{ size.value }}{{ restaurantInfo.currency }}
+                                {{ size.amount }}{{ restaurantInfo.currency }}
                             </div>
                         </div>
                     </div>
                     <div v-else class="dish-price">
                         {{ dish.price }}{{ restaurantInfo.currency }}
+                    </div>
+                    <div class="dish-allergens">
+                        <template v-for="(value, allergen) in dish.allergens">
+                            <img
+                                v-if="value"
+                                :key="allergen"
+                                class="dish-allergen"
+                                :src="require(`~/static/${allergen}.png`)"
+                                :alt="allergen"
+                            >
+                        </template>
                     </div>
                 </div>
             </div>
@@ -65,10 +78,38 @@
         },
         computed: {
             restaurantInfo () {
-                return this.$store.state[this.$route.params.id]
+                return this.mapEntry(this.$store.state[this.$route.params.id])
             }
         },
         methods: {
+            mapEntry (restaurant) {
+                const groupBy = function (xs, key) {
+                    const transform = xs.reduce(function (rv, x) {
+                        (rv[x[key]] = rv[x[key]] || []).push(x)
+                        return rv
+                    }, {})
+                    const categories = []
+                    for (const cat in transform) {
+                        categories.push({
+                            name: cat,
+                            dishes: transform[cat].map((a) => {
+                                const price = a.price.filter(p => p.amount)
+                                return {
+                                    ...a,
+                                    price: price.length === 1 ? a.price[0].amount : price
+                                }
+                            })
+                        })
+                    }
+                    return categories
+                }
+                return {
+                    name: restaurant.name,
+                    logo: restaurant.logo,
+                    currency: restaurant.currency,
+                    categories: groupBy(restaurant.dishes, 'type')
+                }
+            },
             navigateToPreviousCategory () {
                 this.currentCategory = this.currentCategory - 1
                 location.hash = `#${this.restaurantInfo.categories[this.currentCategory].name.trim().toLowerCase()}`
@@ -111,13 +152,13 @@
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: auto 1fr;
-    grid-template-areas: "title price" "ingredients ingredients" "sizes sizes";
+    grid-template-areas: "title price" "ingredients ingredients" "sizes sizes" "allergens allergens";
     align-items: start;
     grid-gap: 12px 16px;
 
     &--img {
       grid-template-columns: 56px 1fr auto;
-      grid-template-areas: "image title price" "image ingredients ingredients" "image sizes sizes";
+      grid-template-areas: "image title price" "image ingredients ingredients" "image sizes sizes" "allergens allergens allergens";
     }
 
     & + & {
@@ -194,6 +235,18 @@
     font-size: 14px;
     font-weight: 700;
     grid-area: price;
+  }
+
+  .dish-allergens {
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: allergens;
+    padding-top: 8px;
+  }
+
+  .dish-allergen {
+    max-width: 24px;
+    margin-right: 4px;
   }
 
   .nav-buttons {

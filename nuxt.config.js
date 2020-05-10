@@ -5,6 +5,9 @@ export default {
     /*
     ** Headers of the page
     */
+    router: {
+        base: '/cartas/'
+    },
     head: {
         title: process.env.npm_package_name || '',
         meta: [
