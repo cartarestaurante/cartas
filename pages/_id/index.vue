@@ -4,11 +4,25 @@
             <header class="header">
                 <img class="logo" :src="restaurantInfo.logo" :alt="restaurantInfo.name">
             </header>
-            <div v-for="category in restaurantInfo.categories" :key="category.name" class="category">
-                <div :id="category.name" class="category-title">
+            <div class="nav-buttons">
+                <button
+                    v-if="currentCategory > 0"
+                    class="nav-buttons-prev"
+                    @click="navigateToPreviousCategory()">
+                    {{ restaurantInfo.categories[currentCategory - 1].name }}
+                </button>
+                <button
+                    v-if="currentCategory < restaurantInfo.categories.length - 1 || currentCategory === 0"
+                    class="nav-buttons-next"
+                    @click="navigateToNextCategory()">
+                    {{ restaurantInfo.categories[currentCategory + 1].name }}
+                </button>
+            </div>
+            <div v-for="(category, catIndex) in restaurantInfo.categories" :key="category.name + catIndex" class="category">
+                <div :id="category.name.trim().toLowerCase()" class="category-title">
                     {{ category.name }}
                 </div>
-                <div v-for="dish in category.dishes" :key="dish.name" class="dish" :class="{'dish--img': dish.image}">
+                <div v-for="(dish, dishIndex) in category.dishes" :key="dish.name + dishIndex" class="dish" :class="{'dish--img': dish.image}">
                     <div v-if="dish.image" class="dish-image">
                         <img :src="dish.image" :alt="dish.name">
                     </div>
@@ -55,9 +69,24 @@
 
 <script>
     export default {
+        data () {
+            return {
+                currentCategory: 0
+            }
+        },
         computed: {
             restaurantInfo () {
                 return this.$store.state[this.$route.params.id]
+            }
+        },
+        methods: {
+            navigateToPreviousCategory () {
+                this.currentCategory = this.currentCategory - 1
+                location.hash = `#${this.restaurantInfo.categories[this.currentCategory].name.trim().toLowerCase()}`
+            },
+            navigateToNextCategory () {
+                this.currentCategory = this.currentCategory + 1
+                location.hash = `#${this.restaurantInfo.categories[this.currentCategory].name.trim().toLowerCase()}`
             }
         }
     }
@@ -77,6 +106,10 @@
 
   .category {
     padding: 16px;
+
+    &:last-of-type {
+      padding-bottom: 66px;
+    }
   }
 
   .category-title {
@@ -174,6 +207,7 @@
     grid-area: price;
   }
 
+
   .dish-allergens {
     display: flex;
     flex-wrap: wrap;
@@ -184,6 +218,32 @@
   .dish-allergen {
     max-width: 24px;
     margin-right: 4px;
+
+  .nav-buttons {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    background-color: #fff;
+    border-top: 2px solid #eee;
+    height: 50px;
+    bottom: 0;
+    user-select: none;
+  }
+
+  .nav-buttons-prev {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    padding-left: 16px;
+  }
+
+  .nav-buttons-next {
+    display: inline-block;
+    height: 100%;
+    width: 50%;
+    text-align: right;
+    padding-right: 16px;
+    float: right;
   }
 
 </style>

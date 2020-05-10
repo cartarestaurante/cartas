@@ -165,6 +165,634 @@ export const state = () => ({
                     }
                 }
             ]
+        },
+        {
+            name: 'Veganismo',
+            dishes: [
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Ternera al horno',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 12.52,
+                    image: 'https://s3.amazonaws.com/menuperu.pe/media/receta/Ensalada%20mixta-1638.jpeg'
+                }
+            ]
+        },
+        {
+            name: 'Postres',
+            dishes: [
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Ternera al horno',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 12.52,
+                    image: 'https://s3.amazonaws.com/menuperu.pe/media/receta/Ensalada%20mixta-1638.jpeg'
+                }
+            ]
+        },
+        {
+            name: 'Vegetarianos',
+            dishes: [
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Ternera al horno',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 12.52,
+                    image: 'https://s3.amazonaws.com/menuperu.pe/media/receta/Ensalada%20mixta-1638.jpeg'
+                },
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Ternera al horno',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 12.52,
+                    image: 'https://s3.amazonaws.com/menuperu.pe/media/receta/Ensalada%20mixta-1638.jpeg'
+                },
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Ternera al horno',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 12.52,
+                    image: 'https://s3.amazonaws.com/menuperu.pe/media/receta/Ensalada%20mixta-1638.jpeg'
+                },
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Ternera al horno',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 12.52,
+                    image: 'https://s3.amazonaws.com/menuperu.pe/media/receta/Ensalada%20mixta-1638.jpeg'
+                },
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Ternera al horno',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 12.52,
+                    image: 'https://s3.amazonaws.com/menuperu.pe/media/receta/Ensalada%20mixta-1638.jpeg'
+                },
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Ternera al horno',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 12.52,
+                    image: 'https://s3.amazonaws.com/menuperu.pe/media/receta/Ensalada%20mixta-1638.jpeg'
+                },
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Ternera al horno',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 12.52,
+                    image: 'https://s3.amazonaws.com/menuperu.pe/media/receta/Ensalada%20mixta-1638.jpeg'
+                },
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Ternera al horno',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 12.52,
+                    image: 'https://s3.amazonaws.com/menuperu.pe/media/receta/Ensalada%20mixta-1638.jpeg'
+                },
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Ternera al horno',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 12.52,
+                    image: 'https://s3.amazonaws.com/menuperu.pe/media/receta/Ensalada%20mixta-1638.jpeg'
+                },
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Ternera al horno',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 12.52,
+                    image: 'https://s3.amazonaws.com/menuperu.pe/media/receta/Ensalada%20mixta-1638.jpeg'
+                }
+            ]
+        },
+        {
+            name: 'Bebidas',
+            dishes: [
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Pollo a la plancha',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 24.52,
+                    image: 'https://mimenurealfooding.com/wp-content/uploads/ensalada-mixta.jpeg'
+                },
+                {
+                    name: 'Ternera al horno',
+                    ingredients: [
+                        {
+                            id: 1,
+                            name: 'Lechuga'
+                        },
+                        {
+                            id: 2,
+                            name: 'Queso'
+                        },
+                        {
+                            id: 2,
+                            name: 'Tomate'
+                        }
+                    ],
+                    price: 12.52,
+                    image: 'https://s3.amazonaws.com/menuperu.pe/media/receta/Ensalada%20mixta-1638.jpeg'
+                }
+            ]
         }
     ]
 })
