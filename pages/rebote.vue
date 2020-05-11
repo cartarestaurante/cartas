@@ -105,7 +105,7 @@
                     name: restaurant.name,
                     logo: restaurant.logo,
                     currency: restaurant.currency,
-                    categories: groupBy(restaurant.dishes, 'type')
+                    categories: groupBy(restaurant.dishes, 'type').filter(a => a.name)
                 }
             },
             navigateToPreviousCategory () {
