@@ -7,23 +7,18 @@
                 </picture>
             </header>
             <div class="nav-buttons">
-                <button
-                    v-if="currentCategory > 0"
-                    class="nav-buttons-prev"
-                    @click="navigateToPreviousCategory()"
-                >
-                    {{ restaurantInfo.categories[currentCategory - 1].name }}
-                </button>
-                <button
-                    v-if="currentCategory < restaurantInfo.categories.length - 1 || currentCategory === 0"
-                    class="nav-buttons-next"
-                    @click="navigateToNextCategory()"
-                >
-                    {{ restaurantInfo.categories[currentCategory + 1].name }}
-                </button>
+                <div class="nav-button nav-buttons-prev" @click="navigateToPreviousCategory()">
+                    P
+                </div>
+                <div class="nav-buttons-current">
+                    {{ restaurantInfo.categories[currentCategory].name }}
+                </div>
+                <div class="nav-button nav-buttons-next" @click="navigateToNextCategory()">
+                    N
+                </div>
             </div>
-            <div v-for="(category, index) in restaurantInfo.categories" :key="category.name + index" class="category">
-                <div :id="category.name.trim().toLowerCase()" class="category-title">
+            <div v-for="(category, index) in restaurantInfo.categories" :id="index" :key="`${Math.random()}-${category.name}`" class="category">
+                <div :id="category.name.replace(' ', '').toLowerCase()" class="category-title">
                     {{ category.name }}
                 </div>
                 <div v-for="(dish, dishIndex) in category.dishes" :key="dish.name + dishIndex" class="dish" :class="{'dish--img': dish.image}">
@@ -35,11 +30,11 @@
                     </div>
                     <div class="dish-ingredients">
                         <template v-for="ingredient in dish.ingredients">
-                            <span :key="ingredient" class="dish-ingredient">{{ ingredient }}</span>
+                            <span :key="`${Math.random()}-${ingredient}`" class="dish-ingredient">{{ ingredient }}</span>
                         </template>
                     </div>
                     <div v-if="Array.isArray(dish.price)" class="dish-sizes">
-                        <div v-for="size in dish.price" :key="size.label" class="dish-size">
+                        <div v-for="size in dish.price" :key="`${Math.random()}-${size.label}`" class="dish-size">
                             <div class="dish-size-title">
                                 {{ size.label }}
                             </div>
@@ -79,6 +74,27 @@
                 return this.mapEntry(this.$store.state.rebote)
             }
         },
+        created () {
+            let position = 0
+            let categoriesElems = []
+            // eslint-disable-next-line nuxt/no-globals-in-created
+            if (process.browser) {
+                // eslint-disable-next-line nuxt/no-globals-in-created
+                window.addEventListener('scroll', (event) => {
+                    // eslint-disable-next-line nuxt/no-globals-in-created
+                    categoriesElems = document.querySelectorAll('.category')
+
+                    categoriesElems.forEach((elem) => {
+                        // eslint-disable-next-line nuxt/no-globals-in-created
+                        position = elem.getBoundingClientRect()
+                        // eslint-disable-next-line nuxt/no-globals-in-created
+                        if (position.top < window.innerHeight && position.bottom >= 0) {
+                            this.currentCategory = elem.id
+                        }
+                    })
+                })
+            }
+        },
         methods: {
             mapEntry (restaurant) {
                 const groupBy = function (xs, key) {
@@ -109,12 +125,22 @@
                 }
             },
             navigateToPreviousCategory () {
-                this.currentCategory = this.currentCategory - 1
-                location.hash = `#${this.restaurantInfo.categories[this.currentCategory].name.trim().toLowerCase()}`
+                if (this.currentCategory > 0) {
+                    this.currentCategory = this.currentCategory - 1
+                    this.navigateToCurrentCategory()
+                }
             },
             navigateToNextCategory () {
-                this.currentCategory = this.currentCategory + 1
-                location.hash = `#${this.restaurantInfo.categories[this.currentCategory].name.trim().toLowerCase()}`
+                if (this.currentCategory < this.restaurantInfo.categories.length - 1) {
+                    this.currentCategory = parseInt(this.currentCategory) + 1
+                    this.navigateToCurrentCategory()
+                }
+            },
+            navigateToCurrentCategory () {
+                document.getElementById(`${this.currentCategory}`).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                })
             }
         }
     }
@@ -253,14 +279,28 @@
 
   .nav-buttons {
     position: fixed;
+    display: flex;
     width: 100%;
     z-index: 1;
     background-color: #fff;
     border-top: 2px solid #eee;
     bottom: 0;
     padding: 16px;
-    display: flex;
     flex-wrap: wrap;
+    user-select: none;
+
+    div {
+      flex-grow: 1;
+      line-height: 50px;
+    }
+
+    .nav-buttons-current {
+      text-align: center;
+    }
+  }
+
+  .nav-button {
+    text-align: center;
   }
 
   .nav-buttons-prev {
