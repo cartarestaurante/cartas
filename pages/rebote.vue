@@ -1,8 +1,10 @@
 <template>
     <div>
-        <div v-if="restaurantInfo">
+        <div v-if="restaurantInfo" class="container">
             <header class="header">
-                <img class="logo" :src="restaurantInfo.logo" :alt="restaurantInfo.name">
+                <picture>
+                    <img class="logo" :src="restaurantInfo.logo" :alt="restaurantInfo.name">
+                </picture>
             </header>
             <div class="nav-buttons">
                 <button
@@ -25,9 +27,9 @@
                     {{ category.name }}
                 </div>
                 <div v-for="(dish, dishIndex) in category.dishes" :key="dish.name + dishIndex" class="dish" :class="{'dish--img': dish.image}">
-                    <div v-if="dish.image" class="dish-image">
+                    <picture v-if="dish.image" class="dish-image">
                         <img :src="dish.image" :alt="dish.name">
-                    </div>
+                    </picture>
                     <div class="dish-title">
                         {{ dish.name }}
                     </div>
@@ -51,13 +53,9 @@
                     </div>
                     <div class="dish-allergens">
                         <template v-for="(value, allergen) in dish.allergens">
-                            <img
-                                v-if="value"
-                                :key="allergen"
-                                class="dish-allergen"
-                                :src="require(`~/static/${allergen}.png`)"
-                                :alt="allergen"
-                            >
+                            <picture v-if="value" :key="allergen">
+                                <img class="dish-allergen" :src="require(`~/static/${allergen}.png`)" :alt="allergen">
+                            </picture>
                         </template>
                     </div>
                 </div>
@@ -107,7 +105,7 @@
                     name: restaurant.name,
                     logo: restaurant.logo,
                     currency: restaurant.currency,
-                    categories: groupBy(restaurant.dishes, 'type')
+                    categories: groupBy(restaurant.dishes, 'type').filter(a => a.name)
                 }
             },
             navigateToPreviousCategory () {
@@ -123,6 +121,10 @@
 </script>
 
 <style lang="scss">
+  .container {
+    padding-bottom: 64px;
+  }
+
   .header {
     display: flex;
     justify-content: center;
@@ -255,25 +257,18 @@
     z-index: 1;
     background-color: #fff;
     border-top: 2px solid #eee;
-    height: 50px;
     bottom: 0;
-    user-select: none;
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .nav-buttons-prev {
-    display: inline-block;
-    width: 50%;
-    height: 100%;
-    padding-left: 16px;
+    margin-right: auto;
   }
 
   .nav-buttons-next {
-    display: inline-block;
-    height: 100%;
-    width: 50%;
-    text-align: right;
-    padding-right: 16px;
-    float: right;
+    margin-left: auto;
   }
 
 </style>

@@ -76,7 +76,7 @@
         },
         computed: {
             restaurantInfo () {
-                return this.mapEntry(this.$store.state[this.$route.params.id])
+                return this.mapEntry(this.$store.state.pizza)
             }
         },
         methods: {
